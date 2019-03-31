@@ -92,6 +92,27 @@ Adapted from: http://blog.heyimcat.com/universal-signup-form/ */
       padding: 0 4px;
       border-radius: 2px;
     }
+
+    .api {
+      background-color: #f7fafc;
+      font-family: monospace;
+      padding: 1rem;
+    }
+    .api-request-verb {
+      color: #09825d;
+    }
+    .api-title {
+      color: #09825d;
+      background-color: #e7eef3;
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      font-family: monospace;
+      margin: 0;
+      height: 100%;
+      margin-top: 2rem;
+    }
+    .api-request-context {
+      color: #697386;
+    }
   </style>
 </head>
 <body>
@@ -102,8 +123,7 @@ Adapted from: http://blog.heyimcat.com/universal-signup-form/ */
       <h3 class="page-title">
         The Old-Fashioned Hackathon<br>
         <code>Fri 26.4. - Sat 27.4.</code><br>
-        <small><del>Fri 29.3. - Sat 30.3.</del></small><br>
-        Tellus, Oulu University
+        Business Kitchen, Tellus, Oulu University
       </h2>
       <p>
         <strong>Oulu Open Hack</strong> is an old-fashioned hackathon held in Oulu. No corporate sponsors, no themes and no industry judges. The participants vote for the best hacks.
@@ -113,6 +133,43 @@ Adapted from: http://blog.heyimcat.com/universal-signup-form/ */
       </p>
       <p>
         You can participate as a team or you can fly solo. You can even partner up during the event. Whatever makes you happy.
+      </p>
+      <h2>Registrations are open!</h2>
+      <p>
+        To register a team, send a HTTP POST request to <code>https://api.ouluopenhack.org</code>. If your request is successful, all team members will get a confirmation email.
+      </p>
+      <p>
+        <div class="api-title">Endpoint</div>
+        <div class="api">
+          <span class="api-request-verb">POST</span>
+          <span class="api-request-context">/v1/teams</span>
+        </div>
+        <div class="api-title">JSON payload</div>
+        <div class="api">
+
+          <pre>
+{
+  "name": "Your Team Name",
+  "users": [
+    {
+      "email": "bob@example.com",
+      "name": "Bob Example"
+    },
+    ...
+    ...
+    {
+      "email": "hyacinth@example.com",
+      "name": "Hyacinth Buckét"
+    }
+  ]
+}
+          </pre>
+        </div>
+        <p style="text-align: right;">
+          <small>
+            Validate your JSON with <a href="https://jsonlint.com/">JSONlint</a>
+          </small>
+        </p>
       </p>
       <!-- Begin Mailchimp Signup Form -->
       <br>
